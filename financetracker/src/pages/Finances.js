@@ -15,7 +15,8 @@ const Finances = () => {
     const [newTransactionDate, setNewTransactionDate] = useState('');
     const [cardName, setCardName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
-    
+    const [newTransactionName, setNewTransactionName] = useState('');
+
 
 // Handler for adding a transaction
 
@@ -97,7 +98,7 @@ const Finances = () => {
             <h1 className="ml-2 text-3xl font-bold underline mb-4">My Finances</h1>
             <div className="flex flex-wrap -mx-2">
                 {/* Card Information Section */}
-                <div className="w-full md:w-1/2 px-2">
+                <div className="mb-2 w-full md:w-1/2 px-2">
                     <div className="bg-lime-100 p-6 rounded-lg shadow-md border-2 border-lime-200">
                         <h2 className="text-xl font-bold mb-3">Card Information</h2>
                         <input
@@ -138,12 +139,20 @@ const Finances = () => {
                 <div className="w-full md:w-1/2 px-2">
                     <div className="bg-lime-100 p-6 rounded-lg shadow-md border-2 border-lime-200">
                         <h2 className="text-xl font-bold mb-3">Transaction History</h2>
+
+                        <input
+                            type="text"
+                            value={newTransactionName}
+                            onChange={(e) => setNewTransactionName(e.target.value)}
+                            placeholder="Transaction Name"
+                            className="p-2 border rounded mb-2 w-full"
+                        />
                         <input
                             type="number"
                             value={newTransactionValue}
                             onChange={(e) => setNewTransactionValue(e.target.value)}
                             placeholder="Transaction Value"
-                            className="p-2 border rounded mb-2 mr-2 w-full"
+                            className="p-2 border rounded mb-2 w-full"
                         />
                         <input
                             type="date"
@@ -152,13 +161,15 @@ const Finances = () => {
                             placeholder="Transaction Date"
                             className="p-2 border rounded mb-2 w-full"
                         />
+
                         <button onClick={handleAddTransaction} className="bg-purple-500 text-white p-2 rounded">
                             Add Transaction
                         </button>
+
                         <div className="mt-4">
                             {transactions.map(transaction => (
                                 <div key={transaction.id} className="bg-yellow-200 p-3 rounded-lg shadow-md mb-2">
-                                    ${transaction.value.toFixed(2)} on {transaction.date}
+                                    {transaction.name} - ${transaction.value.toFixed(2)} on {transaction.date}
                                     <button onClick={() => deleteTransaction(transaction.id)}
                                             className="bg-red-500 text-white p-2 rounded ml-2">
                                         Delete

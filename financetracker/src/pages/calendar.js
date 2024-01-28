@@ -43,7 +43,7 @@ const Calendar = () => {
     return (
         <div>
             <Navbar />
-            <h1 className="text-2xl font-bold mt-4 mb-4 text-lime-800">Calendar</h1>
+            <h1 className="ml-2 text-2xl font-bold mt-4 mb-4 text-lime-800">Calendar</h1>
             <div className="container mx-auto p-4">
                 <div className="flex justify-center">
                     <DatePicker

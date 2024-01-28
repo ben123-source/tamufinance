@@ -34,7 +34,7 @@ const Investment = () => {
                     <h1 class="text-3xl font-bold underline mb-4">Investment Advice</h1>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <b>Enter your investment amount:</b>
+                            <b className='mr-2'>Enter your investment amount:</b>
                             <input type="number" value={investment} onChange={handleInputChange} class="bg-gray-100 rounded-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"/>
                         </label>
                         <br/><br/>
