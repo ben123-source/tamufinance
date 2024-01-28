@@ -77,7 +77,6 @@ const Home = () => {
                             </div>
 
                             <br></br>
-                            <p class="text-xs hover:underline text-center">Don't have an account? Create</p>
                         </form>
                     </div>
         </div>
