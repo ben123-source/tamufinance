@@ -57,7 +57,6 @@ const Home = () => {
                                 <br></br>
                                 <br></br>
 
-                                <p class="text-xs hover:underline text-end">Forgot your password?</p>
                                 <div class="bg-gray-200 rounded-lg drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] md:w-14 md:h-15md:rounded-none rounded-full mx-auto">
                                 <button onClick={() => navigate("/")} type="submit" class="signupbtn">Sign up</button>
                                 </div>
