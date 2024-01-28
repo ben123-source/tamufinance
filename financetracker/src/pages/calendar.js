@@ -40,49 +40,55 @@ const Calendar = () => {
     const getHighlightedDates = () => {
         return reminders.map(reminder => new Date(reminder.date));
     };
-
     return (
         <div>
             <Navbar />
-            <h1 className="text-2xl font-bold mt-4 mb-4">Calendar</h1>
+            <h1 className="text-2xl font-bold mt-4 mb-4 text-lime-800">Calendar</h1>
             <div className="container mx-auto p-4">
-                <DatePicker
-                    selected={selectedDate}
-                    onChange={handleDateChange}
-                    inline
-                    highlightDates={getHighlightedDates()}
-                />
+                <div className="flex justify-center">
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={handleDateChange}
+                        inline
+                        highlightDates={getHighlightedDates()}
+                        className="bg-lime-100 rounded-lg border-2 border-lime-200"
+                    />
+                </div>
                 {selectedDate && (
-                    <div className="mt-3">
-                        <input
-                            type="text"
-                            value={eventName}
-                            onChange={(e) => setEventName(e.target.value)}
-                            placeholder="Event Name"
-                            className="p-2 border rounded mr-2"
-                        />
-                        <input
-                            type="number"
-                            value={fee}
-                            onChange={(e) => setFee(e.target.value)}
-                            placeholder="Fee"
-                            className="p-2 border rounded"
-                        />
-                        <button onClick={createReminder} className="bg-blue-500 text-white p-2 rounded ml-2">
-                            Add Reminder
-                        </button>
+                    <div className="flex justify-center mt-3">
+                        <div className="bg-lime-100 p-4 rounded-lg shadow-md border-2 border-lime-200">
+                            <input
+                                type="text"
+                                value={eventName}
+                                onChange={(e) => setEventName(e.target.value)}
+                                placeholder="Event Name"
+                                className="p-2 border rounded mr-2"
+                            />
+                            <input
+                                type="number"
+                                value={fee}
+                                onChange={(e) => setFee(e.target.value)}
+                                placeholder="Fee"
+                                className="p-2 border rounded"
+                            />
+                            <button onClick={createReminder} className="bg-blue-500 text-white p-2 rounded ml-2">
+                                Add Reminder
+                            </button>
+                        </div>
                     </div>
                 )}
-                <ul className="list-disc mt-3">
-                    {reminders.map((reminder) => (
-                        <li key={reminder.id}>
-                            {reminder.date} - {reminder.eventName} - ${reminder.fee}
-                            <button onClick={() => deleteReminder(reminder.id)} className="text-red-600 ml-2">
-                                Delete
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+                <div className="flex justify-center mt-3">
+                    <ul className="list-disc bg-lime-100 p-4 rounded-lg shadow-md border-2 border-lime-200 w-full md:w-1/2 text-left">
+                        {reminders.map((reminder) => (
+                            <li key={reminder.id} className="mb-2">
+                                {reminder.date} - {reminder.eventName} - ${reminder.fee}
+                                <button onClick={() => deleteReminder(reminder.id)} className="text-red-600 ml-2">
+                                    Delete
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
