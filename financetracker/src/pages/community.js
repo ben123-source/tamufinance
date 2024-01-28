@@ -6,6 +6,7 @@ const Community = () => {
         <div>
             <Navbar />
             <h1>Community</h1>
+            <p>hi</p>
         </div>
     );
 }
